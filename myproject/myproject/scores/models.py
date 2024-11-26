@@ -16,7 +16,7 @@ class Score (models.Model):
             auth_token  = "007efaaa8be27c0dd907720791683f0a"
             client = Client(account_sid, auth_token)
             message = client.messages.create(
-                body=f"Your Score is - {self.result} HAHAHHA",
+                body=f"Kapoy nako love",
                 from_="+19787881931",
                 to="+639630986870",
             )

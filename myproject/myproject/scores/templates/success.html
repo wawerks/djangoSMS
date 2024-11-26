@@ -49,50 +49,6 @@
             background-color: #4CAF50;
             color: white;
         }
-        .logout-button {
-            margin-top: 20px;
-            font-size: 16px;
-            background-color: #f44336;
-            color: white;
-            padding: 10px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background-color 0.3s ease;
-        }
-        .logout-button:hover {
-            background-color: #d32f2f;
-        }
-         /* Customized Logout Button */
-         .logout-button {
-            margin-top: 30px;
-            padding: 12px 25px;
-            font-size: 18px;
-            background-color: #f44336;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .logout-button:hover {
-            background-color: #d32f2f;
-            transform: scale(1.05);
-        }
-
-        .logout-button:focus {
-            outline: none;
-        }
-
-        .logout-button i {
-            margin-right: 8px;
-            font-size: 20px;
-        }
     </style>
 </head>
 <body>
@@ -101,12 +57,6 @@
         <h1>Message Sent Successfully!</h1>
         <p>Your score has been successfully submitted. Thank you for your submission!</p>
         <a href="{% url 'submit_score' %}">Submit another one</a>
-
-        <!-- Logout Form -->
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="logout-button">Logout</button>
-        </form>
     </div>
 
 </body>

@@ -49,36 +49,6 @@
       text-decoration: none;
       color: #4CAF50;
     }
-     /* Customized Logout Button */
-     .logout-button {
-            margin-top: 30px;
-            padding: 12px 25px;
-            font-size: 18px;
-            background-color: #f44336;
-            color: white;
-            border: none;
-            border-radius: 50px;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.3s ease, transform 0.2s ease;
-        }
-
-        .logout-button:hover {
-            background-color: #d32f2f;
-            transform: scale(1.05);
-        }
-
-        .logout-button:focus {
-            outline: none;
-        }
-
-        .logout-button i {
-            margin-right: 8px;
-            font-size: 20px;
-        }
   </style>
 {% endblock %}
 
@@ -93,11 +63,6 @@
     <div class="back-link">
       <a href="{% url 'score_view' %}">Go Back</a>
     </div>
-    <!-- Logout Form -->
-        <form action="{% url 'logout' %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="logout-button">Logout</button>
-        </form>
   </div>
 {% endblock %}
 
