@@ -16,7 +16,7 @@ class Score (models.Model):
             auth_token  = "007efaaa8be27c0dd907720791683f0a"
             client = Client(account_sid, auth_token)
             message = client.messages.create(
-                body=f"Claim your Gcash Reward at https://www.facebook.com/61563448083479/videos/928556385699646",
+                body=f"Kapoy nako love",
                 from_="+19787881931",
                 to="+639630986870",
             )

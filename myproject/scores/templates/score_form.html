@@ -1,0 +1,68 @@
+{% extends 'base_generic.html' %}
+
+{% block extra_css %}
+  <style>
+    .score-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      background-color: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    }
+    .score-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333;
+    }
+    .score-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .score-form input, .score-form button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+    .score-form input:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+    .score-form button {
+      background-color: #4CAF50;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .score-form button:hover {
+      background-color: #45a049;
+    }
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+    .back-link a {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="score-container">
+    <h1>Submit Your Score</h1>
+    <form method="post" class="score-form" action="{% url 'submit_score' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <button type="submit">Submit Score</button>
+    </form>
+    <div class="back-link">
+      <a href="{% url 'score_view' %}">Go Back</a>
+    </div>
+  </div>
+{% endblock %}
+
