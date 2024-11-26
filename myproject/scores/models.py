@@ -11,14 +11,14 @@ class Score (models.Model):
 
     def save(self, *args, **kwargs):
         if self.result < 70:
-            account_sid = "ACc7e5f9c7b69dc3219b0c973c8b17aa6f"
+            account_sid = ["TWILIO ACCOUNT SID"]
             # Your Auth Token from twilio.com/console
-            auth_token  = "007efaaa8be27c0dd907720791683f0a"
+            auth_token  = ["TWILIO ACCOUNT TOKEN"]
             client = Client(account_sid, auth_token)
             message = client.messages.create(
-                body=f"Kapoy nako love",
-                from_="+19787881931",
-                to="+639630986870",
+                body=f"Test - {self.result} ",
+                from_=["TWILIO TRIAL NUMBER"],
+                to=["YOUR MOBILE NUMBER"],
             )
 
             print(message.body)
