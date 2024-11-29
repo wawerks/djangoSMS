@@ -1,0 +1,136 @@
+{% extends 'base_generic.html' %}
+
+{% block extra_css %}
+  <style>
+    .score-container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 30px;
+      background: linear-gradient(135deg, #f8c7d8, #a6d0e4); /* Pastel gradient */
+      border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      color: black; /* Dark text for readability */
+    }
+
+    .score-container h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      font-size: 24px;
+      color: #333; /* Dark color for title */
+    }
+
+    .score-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .score-form input, .score-form button {
+      width: 100%;
+      padding: 12px;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      font-size: 16px;
+    }
+
+    .score-form input:focus {
+      border-color: #4CAF50;
+      outline: none;
+    }
+
+    /* Submit Button: Pastel Blue */
+    .score-form button {
+      background-color: #a6d0e4; /* Pastel Blue */
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .score-form button:hover {
+      background-color: #7fa8cc; /* Darker Pastel Blue */
+    }
+
+    .back-link {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .back-link a {
+      text-decoration: none;
+      color: #4CAF50;
+    }
+
+    /* Align buttons side by side */
+    .button-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px; /* Space between buttons */
+      margin-top: 20px;
+    }
+
+    .button-container button {
+      width: 45%; /* Ensure both buttons are the same width */
+      height: 40px; /* Standard button height */
+      font-size: 14px;
+      padding: 0;
+      border-radius: 4px;
+      border: 1px solid #ddd;
+      cursor: pointer;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .button-container button:hover {
+      background-color: #45a049;
+    }
+
+    /* Logout Button: Pastel Red */
+    .logout-button {
+      background-color: #fc5c7d; /* Pastel Red */
+      color: white;
+      font-size: 14px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .logout-button:hover {
+      background-color: #e84c6a; /* Darker Red on hover */
+      transform: scale(1.05);
+    }
+
+    .logout-button i {
+      margin-right: 8px;
+      font-size: 20px;
+    }
+  </style>
+{% endblock %}
+
+{% block content %}
+  <div class="score-container">
+    <h1>Submit Your Score</h1>
+    
+    <!-- Submit Score Form -->
+    <form method="post" class="score-form" action="{% url 'submit_score' %}">
+      {% csrf_token %}
+      {{ form.as_p }}
+      <div class="button-container">
+        <!-- Submit Button -->
+        <button type="submit">
+          SUBMIT SCORE
+        </button>
+      </div>
+    </form>
+   
+    <!-- Logout Form -->
+    <form action="{% url 'logout' %}" method="post">
+      {% csrf_token %}
+      <div class="button-container">
+        <button type="submit" class="logout-button">
+          LOGOUT
+        </button>
+      </div>
+    </form>
+
+  </div>
+{% endblock %}
