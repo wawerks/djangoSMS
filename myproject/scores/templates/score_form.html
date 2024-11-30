@@ -90,9 +90,6 @@
       {{ form.as_p }}
       <button type="submit">Submit Score</button>
     </form>
-    <div class="back-link">
-      <a href="{% url 'score_view' %}">Go Back</a>
-    </div>
     <!-- Logout Form -->
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}

@@ -3,6 +3,16 @@
 {% block content %}
   <div class="login-container">
     <h2>Login</h2>
+    
+    <!-- Error messages -->
+    {% if messages %}
+      <div class="error-messages">
+        {% for message in messages %}
+          <p class="error-message">{{ message }}</p>
+        {% endfor %}
+      </div>
+    {% endif %}
+
     <form method="post" class="login-form">
       {% csrf_token %}
       {{ form.as_p }}  <!-- Render the form fields -->
@@ -10,6 +20,7 @@
     </form>
   </div>
 {% endblock %}
+
 {% block extra_css %}
   <style>
     .login-container {
@@ -42,13 +53,16 @@
     .btn-primary:hover {
       background-color: #45a049;
     }
-    .register-link {
-      text-align: center;
-      margin-top: 10px;
+    .error-messages {
+      margin-bottom: 15px;
+      background-color: #f8d7da;
+      color: #721c24;
+      padding: 10px;
+      border: 1px solid #f5c6cb;
+      border-radius: 4px;
     }
-    .register-link a {
-      text-decoration: none;
-      color: #4CAF50;
+    .error-message {
+      margin: 0;
     }
   </style>
 {% endblock %}
