@@ -58,8 +58,8 @@ DjangoSMS is a Django-based application for sending and managing SMS messages ef
    Add your SMS provider settings to the `scores/models.py` file. Example for a generic gateway:
    ```python
             # Your Auth Token from twilio.com/console
-            account_sid = "ACc7e5f9c7b69dc3219b0c973c8b17aa6f"
-            auth_token  = "007efaaa8be27c0dd907720791683f0a"
+            account_sid = ""
+            auth_token  = ""
             client = Client(account_sid, auth_token)
             message = client.messages.create(
                 body=f"(Your Message Here)",
