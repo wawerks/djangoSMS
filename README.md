@@ -71,15 +71,7 @@ DjangoSMS is a Django-based application for sending and managing SMS messages ef
 ## Usage
 
 1. **Send an SMS**:
-   Use the provided function to send SMS messages:
-   ```python
-   from djangoSMS.utils import send_sms
-
-   send_sms(
-       phone_number="+1234567890",
-       message="Hello, this is a test message!"
-   )
-   ```
+   Use the provided function to send SMS messages.
 
 2. **Manage Templates**:
    Create and use predefined SMS templates in the admin panel for consistency.
