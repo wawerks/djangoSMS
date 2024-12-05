@@ -8,22 +8,22 @@ class Score(models.Model):
         return str(self.result)
 
     def save(self, *args, **kwargs):
-        account_sid = "ACc7e5f9c7b69dc3219b0c973c8b17aa6f"
-        auth_token = "007efaaa8be27c0dd907720791683f0a"
+        account_sid = ""
+        auth_token = ""
         client = Client(account_sid, auth_token)
         
         if self.result >= 75:
             message = client.messages.create(
                 body="You've Passed",
-                from_="+19787881931",
-                to="+639630986870",
+                from_="",
+                to="",
             )
             print(message.body)
         elif self.result < 75: 
             message = client.messages.create(
                 body="You've Failed",
-                from_="+19787881931",
-                to="+639630986870",
+                from_="",
+                to="",
             )
             print(message.body)
         
