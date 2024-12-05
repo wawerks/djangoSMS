@@ -1,5 +1,109 @@
-Utilizing Django Framework to send SMS using TWILIO as an API messaging. We are only using a free trial.
+# DjangoSMS
 
-Here is how we make this Application:
+DjangoSMS is a Django-based application for sending and managing SMS messages efficiently. It provides a simple interface to integrate SMS functionality into your Django projects.
 
-We first install python, Visit python.org/downloads and download the latest version. Make a folder named djangoSMS Set Up a Virtual Environment In the folder djangoSMS open command promp and run: "python -m venv env" This is how we install the virtual environment isolates your Django project dependencies: activate the virtual environment : env\Scripts\activate Verify activation: The terminal prompt should now show (env). Install django using pip: pip install django Create a new project: django-admin startproject myproject Navigate into the project folder (e.g cd myproject ) Run the server to ensure everything is working: python manage.py runserver The rest of the steps is we follow this youtube video: https://www.youtube.com/watch?v=KYQ3u3xDPRA
+## Features
+
+- Send SMS messages via supported gateways.
+- Manage SMS templates for consistent communication.
+- Track SMS logs for monitoring sent messages.
+- Supports multiple SMS providers with easy configuration.
+
+## Requirements
+
+- Python 3.8+
+- Django 3.2+
+
+## Installation
+
+1. **Clone the repository**:
+   ```bash
+   git clone https://github.com/wawerks/djangoSMS.git
+   cd djangoSMS
+   ```
+
+2. **Set up a virtual environment**:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. **Install dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Apply migrations**:
+   ```bash
+   python manage.py migrate
+   ```
+
+5. **Run the development server**:
+   ```bash
+   python manage.py runserver
+   ```
+
+## Configuration
+
+1. **Add the app to your Django project**:
+   Add `djangoSMS` to the `INSTALLED_APPS` list in your `settings.py`:
+   ```python
+   INSTALLED_APPS = [
+       ...
+       'djangoSMS',
+   ]
+   ```
+
+2. **Configure SMS Gateway**:
+   Add your SMS provider settings to the `settings.py` file. Example for a generic gateway:
+   ```python
+   SMS_GATEWAY = {
+       'url': 'https://api.smsprovider.com/send',
+       'api_key': 'your_api_key',
+       'sender_id': 'YourSenderID',
+   }
+   ```
+
+## Usage
+
+1. **Send an SMS**:
+   Use the provided function to send SMS messages:
+   ```python
+   from djangoSMS.utils import send_sms
+
+   send_sms(
+       phone_number="+1234567890",
+       message="Hello, this is a test message!"
+   )
+   ```
+
+2. **Manage Templates**:
+   Create and use predefined SMS templates in the admin panel for consistency.
+
+3. **View SMS Logs**:
+   Monitor sent messages and their statuses through the built-in logging feature.
+
+## Testing
+
+Run the test suite to ensure the application is functioning as expected:
+```bash
+python manage.py test
+```
+
+## Contributing
+
+Contributions are welcome! To contribute:
+
+1. Fork the repository.
+2. Create a feature branch (`git checkout -b feature/YourFeature`).
+3. Commit your changes (`git commit -m 'Add YourFeature'`).
+4. Push to the branch (`git push origin feature/YourFeature`).
+5. Open a pull request.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Contact
+
+For questions or support, please contact [Your Name](mailto:youremail@example.com) or visit the [repository](https://github.com/wawerks/djangoSMS).
